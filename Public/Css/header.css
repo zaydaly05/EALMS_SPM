@@ -1,0 +1,116 @@
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  background: #4a90e2;
+  color: #fff;
+  display: inline-flex;     /* inline + flexbox = perfect */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.25s; 
+}
+
+
+/* .arrow {
+    margin-left: 4px;
+    transition: transform 0.25s;
+    display: inline-block;
+} */
+
+/* rotate arrow on hover */
+.profile-wrapper:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    width: 280px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    padding: 12px 0;
+    z-index: 1000;
+}
+
+.profile-wrapper:hover .profile-dropdown {
+    display: block;
+}
+
+/* Profile info at top */
+.profile-info {
+    display: flex;
+    padding: 0 16px 12px;
+    border-bottom: 1px solid #eee;
+    gap: 12px;
+}
+
+.avatar-large {
+    width: 48px;
+    height: 48px;
+    background: #4a90e2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.user-details .name {
+    font-weight: 600;
+}
+
+.user-details .handle {
+    color: #555;
+    font-size: 0.875rem;
+}
+
+.user-details a {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: #065fd4;
+    text-decoration: none;
+}
+
+/* Links section */
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-links:last-child {
+    border-bottom: none;
+}
+
+.dropdown-links a {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.dropdown-links a:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-links .icon {
+    width: 20px;
+    text-align: center;
+}

@@ -1,0 +1,110 @@
+/* -------------------------------------------------------------------------- */
+/* 1. Base Styles & Variables */
+/* -------------------------------------------------------------------------- */
+:root {
+    /* Define colors based on the clean, modern 'digg' theme */
+    --primary-color: #5A48B2; /* A strong purple accent */
+    --secondary-color: transparent; /* Light gray for background/separation */
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #e0e0e0;
+}
+
+/* Apply a reset and set the default font */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: #fff; /* Main background should be white */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. Dashboard Specific Layout (If you were to combine all styles) */
+/* -------------------------------------------------------------------------- */
+/* This ensures the main content stretches and pushes the footer down */
+.page-container {
+    flex-grow: 1; 
+    /* padding-bottom: 70px; -- REMOVED: No longer needed as footer is not fixed */
+    /* Add padding/margin around the main content here if needed */
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* 3. Footer Styles (For the footer element created previously) */
+/* Enhanced for a more interesting, modern look */
+/* -------------------------------------------------------------------------- */
+.main-footer {
+    /* Removed: position: fixed; */
+    /* Removed: bottom: 0; */
+    /* Removed: left: 0; */
+    /* Removed: z-index: 1000; */
+    width: 100%;
+    background-color: transparent; /* Transparent background for modern look */
+    /* Use a slightly more pronounced shadow and remove border-top for a cleaner float effect */
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.08); /* More noticeable shadow */
+    padding: 15px 30px;
+    font-size: 0.875rem; /* Slightly larger font */
+    color: var(--light-text);
+    margin-top: auto; /* Ensures the footer is pushed to the bottom of the body (due to flex-direction: column on body) */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content */
+}
+
+/* Style for the copyright text */
+.footer-content p {
+    font-weight: 500;
+    color: var(--text-color); /* Make copyright text darker/more prominent */
+    margin: 0;
+}
+
+.footer-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin-left: 25px; /* Increased margin for better separation */
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: none; /* Removed underline on hover for cleaner look, relying on color change */
+}
+
+.footer-version {
+    /* For smaller version text */
+    margin-left: 20px;
+    font-size: 0.75rem; /* Smaller version text */
+    color: var(--light-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 15px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-links a {
+        margin: 5px 0 0 0;
+    }
+}

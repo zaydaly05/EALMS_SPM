@@ -1,0 +1,166 @@
+/* Background dimming */
+.page-content {
+  filter: blur(2px);
+  user-select: none;
+  /* your page's background content styles */
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal box */
+.modal {
+  background: #fff;
+  border-radius: 4px;
+  width: 350px;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 0 15px rgb(0 0 0 / 0.15);
+  user-select: text;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Close button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+  line-height: 1;
+  padding: 0;
+  user-select: none;
+}
+.close-btn:hover {
+  color: #a00;
+}
+
+/* Form styles */
+.signup-form label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: #000;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  outline-offset: 2px;
+  outline-color: transparent;
+  transition: outline-color 0.25s ease;
+  box-sizing: border-box;
+  color: #444;
+}
+
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus,
+.signup-form input[type="password"]:focus {
+  outline-color: #7e2727;
+  border-color: #7e2727;
+}
+
+/* File upload styling */
+.file-label {
+  margin-top: 0.8rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  user-select: none;
+}
+
+.upload-button-wrapper {
+  position: relative;
+  margin-top: 0.2rem;
+  width: 150px;
+  height: 28px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-button-wrapper input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.upload-text {
+  user-select: none;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.upload-icon {
+  font-size: 1.1rem;
+}
+
+/* Submit button */
+.btn-submit {
+  margin-top: 1.6rem;
+  width: 100%;
+  background-color: #7e2727;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  padding: 7px 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+  background-color: #5c1b1b;
+  outline: none;
+}
