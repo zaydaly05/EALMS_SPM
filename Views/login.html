@@ -33,13 +33,12 @@
 
     <h2>Login</h2>
 
-    
     <form class="login-form" onsubmit="goToDashboard(event)">
 
       <label for="email">Email</label>
 
       <div class="input-group">
-        <span class="input-icon"></span>
+        <span class="input-icon"> </span>
         <input
           type="email"
           id="email"
@@ -87,11 +86,13 @@ function goToDashboard(e) {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
 
-  // 
-  if (email.includes("@") && password.length >= 3) {
-    window.location.href = "userDashboard.html";
+  if (email.includes("@") && email.includes(".") && password.length >= 3) {
+    document.querySelector(".btn-login").innerText = "Loading...";
+    setTimeout(() => {
+      window.location.href = "userDashboard.html";
+    }, 500);
   } else {
-    alert("Please enter a valid email and password (min 3 chars)");
+    alert("Please enter a valid email and password");
   }
 }
 </script>
