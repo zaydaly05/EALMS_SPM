@@ -18,8 +18,7 @@
   <aside class="sidebar">
     <div class="logo">
       <!-- fix path -->
-      <img src="../Public/Images/EALMS Logo.png" alt="Logo">
-    </div>
+      <img src="../Public/Images/EALMS-Logo.png" alt="Logo">j
 
     <nav>
       <a href="userDashboard.html" class="active">
@@ -27,7 +26,7 @@
       </a>
 
       <!-- fix file name -->
-      <a href="history dashboard.html">
+      <a href="historydashboard.html">
         <span class="icon">⏰</span> History
       </a>
 
@@ -246,6 +245,12 @@ function markAttendance(e) {
   }
 }
 </script>
+<script>
+let user = localStorage.getItem("user");
 
+if (user) {
+  document.querySelector(".welcome").innerText = "Welcome back, " + user + " 👋";
+}
+</script>
 </body>
 </html>
