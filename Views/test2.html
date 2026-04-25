@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Dashboard - Summary</title>
+
+<link rel="stylesheet" href="../Public/Css/adminFinal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Dashboard Summary</h1>
+
+    <!-- Total Users -->
+    <div class="summary-card" id="usersCard">
+        <div class="card-header">
+            <h2 class="card-title">Total Users</h2>
+
+            <div class="card-icon">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+
+        <div class="card-value" id="totalUsers">156</div>
+
+        <p class="card-description">
+            Active employees registered in the system
+        </p>
+    </div>
+
+    <!-- Total Leaves -->
+    <div class="summary-card" id="leavesCard">
+        <div class="card-header">
+            <h2 class="card-title">Total Leaves</h2>
+
+            <div class="card-icon">
+                <i class="fas fa-calendar-times"></i>
+            </div>
+        </div>
+
+        <div class="card-value" id="totalLeaves">23</div>
+
+        <p class="card-description">
+            Leave requests this month (Approved & Pending)
+        </p>
+    </div>
+
+    <!-- Celebrations -->
+    <div class="summary-card" id="celebrationCard">
+
+        <div class="card-header">
+            <h2 class="card-title">Celebration Reminders</h2>
+
+            <div class="card-icon">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+        </div>
+
+        <div id="celebrationList">
+
+            <div class="celebration-item">
+                <div class="celebration-name">Ahmed Mohamed</div>
+                <div class="celebration-date">
+                    <i class="fas fa-calendar"></i> Nov 22, 2025
+                </div>
+                <span class="celebration-type">Birthday</span>
+            </div>
+
+            <div class="celebration-item">
+                <div class="celebration-name">Sara Hassan</div>
+                <div class="celebration-date">
+                    <i class="fas fa-calendar"></i> Nov 25, 2025
+                </div>
+                <span class="celebration-type">Work Anniversary</span>
+            </div>
+
+            <div class="celebration-item">
+                <div class="celebration-name">Mohamed Ali</div>
+                <div class="celebration-date">
+                    <i class="fas fa-calendar"></i> Nov 28, 2025
+                </div>
+                <span class="celebration-type">Birthday</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Button -->
+    <button class="refresh-btn">
+        <i class="fas fa-sync-alt"></i> Refresh Data
+    </button>
+
+</div>
+
+</body>
+</html>

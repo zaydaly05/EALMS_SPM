@@ -1,48 +1,44 @@
-<?php
-
-require_once './Controllers/HistoryC.php';
-
-$userId = $_SESSION['user_id'] ?? null;
-if (!$userId) {
-    header('Location: /login');
-    exit;
-}
-
-$historyController = new HistoryC();
-$historyData = $historyController->getUserHistory($userId);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>History</title>
-  <link rel="stylesheet" href="<?php echo $base_url; ?>Public/Css/history.css" />
+  <link rel="stylesheet" href="../Public/Css/history.css" />
 </head>
 
 <body>
+
 <div class="container">
 
   <!-- Sidebar -->
   <aside class="sidebar">
-      <div class="logo"><img src="<?php echo $base_url; ?>Public/Images/EALMS Logo.png" style="width: 180px;" height="auto" alt="EALMS Logo"></div>
+    <div class="logo">
+      <img src="/EALMS/Public/Images/EALMS Logo.png" style="width: 180px;" height="auto" alt="EALMS Logo">
+    </div>
+
     <nav>
-      <a href="<?php echo $base_url; ?>dashboard">📊 Dashboard</a>
-      <a href="<?php echo $base_url; ?>history" class="active">⏰ History</a>
+      <a href="/EALMS/dashboard">📊 Dashboard</a>
+      <a href="/EALMS/history" class="active">⏰ History</a>
     </nav>
   </aside>
 
   <!-- Main -->
   <div class="main">
-    
-    <?php include_once 'header.php'; ?>
+
+    <header>
+      <div class="profile-wrapper">
+        <span class="avatar">U</span>
+      </div>
+    </header>
 
     <main class="content">
+
       <h1 class="page-title">History</h1>
 
       <!-- Filters -->
       <section class="history-filters">
+
         <div class="tabs">
           <button class="tab active" data-status="present">Present</button>
           <button class="tab" data-status="halfday">Half Day</button>
@@ -62,10 +58,12 @@ $historyData = $historyController->getUserHistory($userId);
           <input type="date" id="start-date">
           <input type="date" id="end-date">
         </div>
+
       </section>
 
       <!-- Table -->
       <table class="history-table">
+
         <thead>
           <tr>
             <th>Date</th>
@@ -76,17 +74,65 @@ $historyData = $historyController->getUserHistory($userId);
             <th>Status</th>
           </tr>
         </thead>
+
         <tbody id="history-table-body"></tbody>
+
       </table>
+
     </main>
+
   </div>
+
 </div>
 
-<?php include_once 'footer.php'; ?>
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Leave Management System (LMS). All Rights Reserved.</p>
 
-<!-- PHP → JS DATA -->
+    <div class="footer-links">
+      <a href="/EALMS/privacy-policy">Privacy Policy</a>
+      <a href="/EALMS/terms">Terms of Use</a>
+      <a href="/EALMS/contact">Support</a>
+    </div>
+  </div>
+
+  <div class="footer-version">
+    <p>Version 1.0.1</p>
+  </div>
+</footer>
+
 <script>
-const historyData = <?= json_encode($historyData, JSON_UNESCAPED_UNICODE) ?>;
+const historyData = [
+  {
+    work_date: "2026-04-20",
+    check_in: "09:00 AM",
+    check_out: "05:00 PM",
+    work_time: "08H 00M",
+    status: "present",
+    type: "attendance"
+  },
+  {
+    work_date: "2026-04-21",
+    check_in: "09:15 AM",
+    check_out: "01:00 PM",
+    work_time: "04H 00M",
+    status: "halfday",
+    type: "attendance"
+  },
+  {
+    work_date: "2026-04-22",
+    check_in: "-",
+    check_out: "-",
+    work_time: "00H 00M",
+    status: "absent",
+    type: "attendance"
+  },
+  {
+    work_date: "2026-04-23",
+    status: "Annual Leave",
+    type: "leave"
+  }
+];
 </script>
 
 <script>
@@ -99,10 +145,9 @@ const endDateInput = document.querySelector("#end-date");
 let selectedStatus = "present";
 let selectedPeriod = "1w";
 
-function parseDate(d) { return new Date(d); }
-
 function getPeriodStartDate(period) {
   const now = new Date();
+
   switch(period){
     case "1w": return new Date(now.setDate(now.getDate() - 7));
     case "1m": return new Date(now.setMonth(now.getMonth() - 1));
@@ -114,7 +159,9 @@ function getPeriodStartDate(period) {
 }
 
 function filterData() {
-  let data = historyData.filter(r => r.type !== 'leave' && r.status === selectedStatus || r.type === 'leave');
+  let data = historyData.filter(r =>
+    (r.type !== "leave" && r.status === selectedStatus) || r.type === "leave"
+  );
 
   if (startDateInput.value) {
     data = data.filter(r => new Date(r.work_date) >= new Date(startDateInput.value));
@@ -131,13 +178,16 @@ function filterData() {
 
 function renderTable() {
   const data = filterData();
+
   if (!data.length) {
-    tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center">No records found</td></tr>`;
+    tableBody.innerHTML =
+      '<tr><td colspan="6" style="text-align:center">No records found</td></tr>';
     return;
   }
 
   tableBody.innerHTML = data.map(r => {
-    if (r.type === 'leave') {
+
+    if (r.type === "leave") {
       return `
         <tr>
           <td>${new Date(r.work_date).toLocaleDateString()}</td>
@@ -148,19 +198,20 @@ function renderTable() {
           <td>Approved</td>
         </tr>
       `;
-    } else {
-      return `
-        <tr>
-          <td>${new Date(r.work_date).toLocaleDateString()}</td>
-          <td>${new Date(r.work_date).toLocaleDateString('en-US',{weekday:'long'})}</td>
-          <td>${r.check_in ?? '-'}</td>
-          <td>${r.check_out ?? '-'}</td>
-          <td>${r.work_time ?? '00H 00M'}</td>
-          <td>${r.status.charAt(0).toUpperCase()+r.status.slice(1)}</td>
-        </tr>
-      `;
     }
-  }).join('');
+
+    return `
+      <tr>
+        <td>${new Date(r.work_date).toLocaleDateString()}</td>
+        <td>${new Date(r.work_date).toLocaleDateString('en-US',{weekday:'long'})}</td>
+        <td>${r.check_in}</td>
+        <td>${r.check_out}</td>
+        <td>${r.work_time}</td>
+        <td>${r.status.charAt(0).toUpperCase() + r.status.slice(1)}</td>
+      </tr>
+    `;
+
+  }).join("");
 }
 
 tabs.forEach(tab => {
@@ -177,7 +228,8 @@ periodButtons.forEach(btn => {
     periodButtons.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     selectedPeriod = btn.dataset.period;
-    startDateInput.value = endDateInput.value = "";
+    startDateInput.value = "";
+    endDateInput.value = "";
     renderTable();
   };
 });
@@ -186,5 +238,6 @@ periodButtons.forEach(btn => {
 
 renderTable();
 </script>
+
 </body>
 </html>

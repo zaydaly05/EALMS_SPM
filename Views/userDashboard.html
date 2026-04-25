@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+
+  <!-- External CSS only -->
+  <link rel="stylesheet" href="../Public/Css/User Dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="Public/Images/EALMS Logo.png" alt="Logo">
+    </div>
+
+    <nav>
+      <a href="#" class="active">
+        <span class="icon">📊</span> Dashboard
+      </a>
+
+      <a href="history.html">
+        <span class="icon">⏰</span> History
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+
+    <header class="header">
+      <h2>User Dashboard</h2>
+    </header>
+
+    <main class="content">
+
+      <!-- Welcome -->
+      <div class="top-box">
+        <div class="welcome">
+          Welcome back, Zayd 👋
+        </div>
+
+        <a href="request-time-off.html" class="btn-request">
+          <i class="fas fa-calendar-plus"></i>
+          Request Time Off
+        </a>
+      </div>
+
+      <!-- Leave Cards -->
+      <section class="leave-cards">
+
+        <article class="leave-card">
+          <h3>Casual Leave</h3>
+          <p>Available: 3</p>
+          <p>Used: 5</p>
+        </article>
+
+        <article class="leave-card">
+          <h3>Sick Leave</h3>
+          <p>Available: 3</p>
+          <p>Used: 2</p>
+        </article>
+
+        <article class="leave-card">
+          <h3>Earned Leave</h3>
+          <p>Available: 6</p>
+          <p>Used: 6</p>
+        </article>
+
+        <article class="leave-card">
+          <h3>Unpaid Leave</h3>
+          <p>Available: 5</p>
+          <p>Used: 6</p>
+        </article>
+
+        <article class="leave-card">
+          <h3>Half Leave</h3>
+          <p>Available: 6</p>
+          <p>Used: 6</p>
+        </article>
+
+      </section>
+
+      <!-- Attendance -->
+      <section class="attendance-container">
+
+        <h3>Daily Attendance</h3>
+
+        <form>
+
+          <label>
+            <input type="radio" name="status">
+            Present
+          </label>
+
+          <label>
+            <input type="radio" name="status">
+            Absent
+          </label>
+
+          <label>
+            <input type="radio" name="status">
+            Remote
+          </label>
+
+          <button type="submit" class="btn-request">
+            Mark Attendance
+          </button>
+
+        </form>
+
+      </section>
+
+      <!-- Main Two Columns -->
+      <div class="dashboard-grid">
+
+        <!-- Left -->
+        <div class="left-side">
+
+          <!-- Announcements -->
+          <section class="section">
+            <h3>Announcements</h3>
+
+            <div class="announcement-item">
+              📢 Office will be closed Friday.
+            </div>
+
+            <div class="announcement-item">
+              📢 Submit reports before 30th April.
+            </div>
+
+            <div class="announcement-item">
+              📢 New leave policy updated.
+            </div>
+
+          </section>
+
+          <!-- Leave Requests -->
+          <section class="section">
+            <h3>Leave Requests</h3>
+
+            <table>
+              <tr>
+                <th>Duration</th>
+                <th>Type</th>
+                <th>Days</th>
+                <th>Status</th>
+              </tr>
+
+              <tr>
+                <td>Apr 25 - Apr 27</td>
+                <td>Casual</td>
+                <td>3</td>
+                <td>Pending</td>
+              </tr>
+
+              <tr>
+                <td>May 1 - May 2</td>
+                <td>Sick</td>
+                <td>2</td>
+                <td>Approved</td>
+              </tr>
+
+            </table>
+          </section>
+
+        </div>
+
+        <!-- Right -->
+        <div class="right-side">
+
+          <!-- Who's on Leave -->
+          <section class="section">
+            <h3>Who's on Leave</h3>
+
+            <div class="leave-person">
+              Ahmed Mohamed - Casual Leave
+            </div>
+
+            <div class="leave-person">
+              Sara Hassan - Sick Leave
+            </div>
+
+          </section>
+
+          <!-- Celebrations -->
+          <section class="section">
+            <h3>Celebrations This Month</h3>
+
+            <div class="celebration-item">
+              🎂 Ahmed Mohamed - Apr 26
+            </div>
+
+            <div class="celebration-item">
+              🎉 Sara Hassan - Work Anniversary
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 EALMS</p>
+</footer>
+
+</body>
+</html>

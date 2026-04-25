@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../Public/Css/adminFinal.css"/>
+
+    <script src="./Public/Js/animateNumber.js"></script>
+
+    <script>
+        window.BASE_URL = "/EALMS/";
+    </script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="/EALMS/Public/Images/EALMS Logo.png" style="width: 180px;" height="auto" alt="EALMS Logo">
+        </div>
+
+        <nav>
+            <ul>
+                <li class="active"><a href="#">Dashboard</a></li>
+                <li><a href="#user-requests">User Sign-Ups</a></li>
+                <li><a href="#leave-requests">Leave Requests</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="#celeb">Celebrations</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+
+            <h1>Welcome back, Admin 👋</h1>
+
+            <!-- Announcement -->
+            <section id="announcements" name="postAnnouncement" class="post-section">
+                <h2>Post Announcement</h2>
+
+                <form action="#" method="POST">
+                    <input type="hidden" name="postAnnouncement" value="1">
+
+                    <textarea name="announcement" placeholder="Type your announcement.." required></textarea>
+
+                    <button type="submit">Post Announcement</button>
+                </form>
+            </section>
+
+            <!-- Celebration -->
+            <section id="celeb" class="post-section">
+                <h2>Add Celebration Reminder</h2>
+
+                <form action="#" method="POST">
+
+                    <input type="hidden" name="postCelebration" value="1">
+
+                    <label for="celebration_name">Name *</label>
+                    <input type="text" id="celebration_name" name="celebration_name" placeholder="Enter person's name" required>
+
+                    <label for="celebration_type">Type *</label>
+                    <select id="celebration_type" name="celebration_type" required>
+                        <option value="">Select type</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Work Anniversary">Work Anniversary</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="celebration_date">Date *</label>
+                    <input type="date" id="celebration_date" name="celebration_date" required>
+
+                    <textarea id="celebration_message" name="celebration_message" placeholder="Additional message or note..."></textarea>
+
+                    <button type="submit">Add Celebration Reminder</button>
+
+                </form>
+            </section>
+
+            <!-- User Requests -->
+            <section id="user-requests" class="requests-section" style="margin-bottom: 0 !important;">
+                <h2>User Sign-Up Requests</h2>
+
+                <div class="request-card">
+                    <p>No pending signup requests.</p>
+                </div>
+            </section>
+
+            <br>
+
+            <!-- Leave Requests -->
+            <section class="requests-section" id="leave-requests" style="width: 850px; margin-top: 0 !important;">
+                <h2>Leave Requests</h2>
+
+                <div class="request-card">
+                    <p>No pending leave requests.</p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-column">
+
+            <!-- DASHBOARD SUMMARY -->
+            <div class="dashboard-container">
+
+                <h1 class="dashboard-title">Dashboard Summary</h1>
+
+                <div class="summary-card" id="usersCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Total Users</h2>
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+
+                    <div class="card-value" id="totalUsers">0</div>
+
+                    <p class="card-description">Active employees registered</p>
+                </div>
+
+                <div class="summary-card" id="leavesCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Total Leaves</h2>
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                    </div>
+
+                    <div class="card-value" id="totalLeaves">0</div>
+
+                    <p class="card-description">Leave requests this month</p>
+                </div>
+
+                <div class="summary-card" id="celebrationCard">
+
+                    <div class="card-header">
+                        <h2 class="card-title">Celebration Reminders</h2>
+
+                        <div class="card-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                    </div>
+
+                    <div id="celebrationList">
+
+                        <div class="celebration-reminders-list">
+
+                            <div class="celebration-item">
+                                <div class="celebration-name">John Smith</div>
+                                <div class="celebration-date">
+                                    <i class="fas fa-calendar"></i> Nov 22, 2025
+                                </div>
+                                <span class="celebration-type">Birthday</span>
+                            </div>
+
+                            <div class="celebration-item">
+                                <div class="celebration-name">Sarah Ahmed</div>
+                                <div class="celebration-date">
+                                    <i class="fas fa-calendar"></i> Dec 05, 2025
+                                </div>
+                                <span class="celebration-type">Work Anniversary</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="refresh-btn" onclick="refreshDashboard()">
+                    <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<footer>
+    <p>Footer Content</p>
+</footer>
+
+</html>
