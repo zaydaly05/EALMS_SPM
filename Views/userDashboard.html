@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard</title>
+  <title>User Dashboard</title>
 
-  <!-- External CSS only -->
+  <!-- CSS -->
   <link rel="stylesheet" href="../Public/Css/User Dashboard.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
@@ -17,16 +17,30 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="logo">
-      <img src="Public/Images/EALMS Logo.png" alt="Logo">
+      <!-- fix path -->
+      <img src="../Public/Images/EALMS Logo.png" alt="Logo">
     </div>
 
     <nav>
-      <a href="#" class="active">
+      <a href="userDashboard.html" class="active">
         <span class="icon">📊</span> Dashboard
       </a>
 
-      <a href="history.html">
+      <!-- fix file name -->
+      <a href="history dashboard.html">
         <span class="icon">⏰</span> History
+      </a>
+
+      <a href="leave_summary.html">
+        <span class="icon">📄</span> Leave Summary
+      </a>
+
+      <a href="settings.html">
+        <span class="icon">⚙️</span> Settings
+      </a>
+
+      <a href="login.html">
+        <span class="icon">🚪</span> Logout
       </a>
     </nav>
   </aside>
@@ -43,10 +57,11 @@
       <!-- Welcome -->
       <div class="top-box">
         <div class="welcome">
-          Welcome back, Zayd 👋
+          Welcome back 👋
         </div>
 
-        <a href="request-time-off.html" class="btn-request">
+        <!-- fix file name -->
+        <a href="requestTimeOff.html" class="btn-request">
           <i class="fas fa-calendar-plus"></i>
           Request Time Off
         </a>
@@ -92,20 +107,20 @@
 
         <h3>Daily Attendance</h3>
 
-        <form>
+        <form onsubmit="markAttendance(event)">
 
           <label>
-            <input type="radio" name="status">
+            <input type="radio" name="status" value="Present" required>
             Present
           </label>
 
           <label>
-            <input type="radio" name="status">
+            <input type="radio" name="status" value="Absent">
             Absent
           </label>
 
           <label>
-            <input type="radio" name="status">
+            <input type="radio" name="status" value="Remote">
             Remote
           </label>
 
@@ -157,14 +172,14 @@
                 <td>Apr 25 - Apr 27</td>
                 <td>Casual</td>
                 <td>3</td>
-                <td>Pending</td>
+                <td style="color: orange;">Pending</td>
               </tr>
 
               <tr>
                 <td>May 1 - May 2</td>
                 <td>Sick</td>
                 <td>2</td>
-                <td>Approved</td>
+                <td style="color: green;">Approved</td>
               </tr>
 
             </table>
@@ -216,6 +231,21 @@
 <footer>
   <p>© 2026 EALMS</p>
 </footer>
+
+<!-- JS -->
+<script>
+function markAttendance(e) {
+  e.preventDefault();
+
+  let status = document.querySelector('input[name="status"]:checked');
+
+  if (status) {
+    alert("Attendance marked: " + status.value);
+  } else {
+    alert("Please select attendance status");
+  }
+}
+</script>
 
 </body>
 </html>
