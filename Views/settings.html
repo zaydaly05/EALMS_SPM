@@ -5,7 +5,9 @@
     <title>Settings | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- FIXED PATH -->
     <link rel="stylesheet" href="../Public/Css/adminFinal.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -15,14 +17,15 @@
 <div class="sidebar">
 
     <div class="logo">
-        <img src="/EALMS/Public/Images/EALMS Logo.png" style="width:180px;" alt="EALMS Logo">
+        <!-- FIXED PATH -->
+        <img src="../Public/Images/EALMS Logo.png" style="width:160px;" alt="EALMS Logo">
     </div>
 
     <nav>
         <ul>
-            <li><a href="adminDashboard.html">Dashboard</a></li>
-            <li class="active"><a href="#">Settings</a></li>
-            <li><a href="/EALMS/logout">Logout</a></li>
+            <li><a href="admin.html">Dashboard</a></li>
+            <li class="active"><a href="settings.html">Settings</a></li>
+            <li><a href="login.html">Logout</a></li>
         </ul>
     </nav>
 
@@ -53,16 +56,16 @@
 
             <h2>Profile Settings</h2>
 
-            <form method="POST" action="#">
+            <form onsubmit="return saveProfile()">
 
                 <label>Full Name</label>
-                <input type="text" value="Admin Name">
+                <input type="text" id="name" value="Admin Name" required>
 
                 <label>Email</label>
-                <input type="email" value="admin@email.com">
+                <input type="email" id="email" value="admin@email.com" required>
 
                 <label>Username</label>
-                <input type="text" value="admin">
+                <input type="text" value="admin" required>
 
                 <button type="submit">
                     <i class="fas fa-save"></i> Save Profile
@@ -77,16 +80,16 @@
 
             <h2>Change Password</h2>
 
-            <form method="POST" action="#">
+            <form onsubmit="return changePassword()">
 
                 <label>Current Password</label>
-                <input type="password">
+                <input type="password" id="currentPass" required>
 
                 <label>New Password</label>
-                <input type="password">
+                <input type="password" id="newPass" required>
 
                 <label>Confirm New Password</label>
-                <input type="password">
+                <input type="password" id="confirmPass" required>
 
                 <button type="submit">
                     <i class="fas fa-lock"></i> Update Password
@@ -101,7 +104,7 @@
 
             <h2>System Preferences</h2>
 
-            <form method="POST" action="#">
+            <form onsubmit="return saveSettings()">
 
                 <label>
                     <input type="checkbox" checked>
@@ -144,7 +147,7 @@
             <div class="summary-card">
                 <h3>Danger Zone</h3>
 
-                <button style="background:#dc3545;">
+                <button onclick="deleteAccount()" style="background:#dc3545;">
                     <i class="fas fa-trash"></i> Deactivate Account
                 </button>
             </div>
@@ -154,6 +157,53 @@
     </div>
 
 </div>
+
+<!-- JS -->
+<script>
+function saveProfile() {
+    let email = document.getElementById("email").value;
+
+    if (!email.includes("@")) {
+        alert("Enter valid email");
+        return false;
+    }
+
+    alert("Profile updated successfully ✅");
+    return false;
+}
+
+function changePassword() {
+    let newPass = document.getElementById("newPass").value;
+    let confirmPass = document.getElementById("confirmPass").value;
+
+    if (newPass.length < 4) {
+        alert("Password must be at least 4 characters");
+        return false;
+    }
+
+    if (newPass !== confirmPass) {
+        alert("Passwords do not match");
+        return false;
+    }
+
+    alert("Password updated successfully 🔒");
+    return false;
+}
+
+function saveSettings() {
+    alert("Settings saved ⚙️");
+    return false;
+}
+
+function deleteAccount() {
+    let confirmDelete = confirm("Are you sure you want to deactivate your account?");
+
+    if (confirmDelete) {
+        alert("Account deactivated ❌");
+        window.location.href = "login.html";
+    }
+}
+</script>
 
 </body>
 </html>
