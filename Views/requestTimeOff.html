@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard</title>
+  <title>User Dashboard</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="../Public/Css/User Dashboard.css" />
   <link rel="stylesheet" href="../Public/Css/requestTimeOff.css" />
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 
@@ -17,18 +20,30 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="logo">
-      <img src="/EALMS/Public/Images/EALMS Logo.png" style="width: 180px;" height="auto" alt="EALMS Logo">
+      <!-- FIXED PATH -->
+      <img src="../Public/Images/EALMS Logo.png" style="width: 160px;" alt="EALMS Logo">
     </div>
 
     <nav>
-      <a href="#" class="active">
-        <span class="icon">📊</span>
-        Dashboard
+      <a href="userDashboard.html" class="active">
+        <span class="icon">📊</span> Dashboard
       </a>
 
-      <a href="/EALMS/history">
-        <span class="icon">⏰</span>
-        History
+      <!-- FIXED NAME -->
+      <a href="history dashboard.html">
+        <span class="icon">⏰</span> History
+      </a>
+
+      <a href="leave_summary.html">
+        <span class="icon">📄</span> Leave Summary
+      </a>
+
+      <a href="settings.html">
+        <span class="icon">⚙️</span> Settings
+      </a>
+
+      <a href="login.html">
+        <span class="icon">🚪</span> Logout
       </a>
     </nav>
   </aside>
@@ -36,67 +51,60 @@
   <!-- Main -->
   <div class="main">
 
-    <header>
-      <div class="profile-wrapper">
-        <span class="avatar">U</span>
-      </div>
+    <header class="header">
+      <h2>User Dashboard</h2>
     </header>
 
     <main class="content">
 
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
-
+      <!-- Welcome -->
+      <div class="top-box">
         <div class="welcome">
-          Welcome back, User <span class="wave">👋</span>
+          Welcome back, Ahmed 👋
         </div>
 
-        <a href="/EALMS/request-time-off" class="btn-request">
+        <!-- FIXED LINK -->
+        <button class="btn-request" onclick="openModal()">
+          <i class="fas fa-calendar-plus"></i>
           Request Time Off
-        </a>
-
+        </button>
       </div>
 
       <!-- Leave Cards -->
       <section class="leave-cards">
 
         <article class="leave-card casual">
-          <div class="title">Casual Leave</div>
-          <div class="details">
-            <span>Available - 3</span>
-            <span>Used - 5</span>
-          </div>
+          <h3>Casual Leave</h3>
+          <p>Available: 3</p>
+          <p>Used: 5</p>
         </article>
 
         <article class="leave-card sick">
-          <div class="title">Sick Leave</div>
-          <div class="details">
-            <span>Available - 3</span>
-            <span>Used - 2</span>
-          </div>
+          <h3>Sick Leave</h3>
+          <p>Available: 3</p>
+          <p>Used: 2</p>
         </article>
 
         <article class="leave-card earned">
-          <div class="title">Earned Leave</div>
-          <div class="details">
-            <span>Available - 6</span>
-            <span>Used - 6</span>
-          </div>
+          <h3>Earned Leave</h3>
+          <p>Available: 6</p>
+          <p>Used: 6</p>
         </article>
 
       </section>
 
       <!-- Attendance -->
-      <section class="attendance-container card">
+      <section class="attendance-container">
 
         <h3>Daily Attendance</h3>
 
-        <form method="POST" action="#">
+        <form onsubmit="return markAttendance()">
 
           <label><input type="radio" name="status" value="present"> Present</label>
           <label><input type="radio" name="status" value="absent"> Absent</label>
           <label><input type="radio" name="status" value="remote"> Remote</label>
 
-          <button type="submit" class="btn-request" style="background-color: darkgreen;">
+          <button type="submit" class="btn-request">
             Mark Attendance
           </button>
 
@@ -104,129 +112,38 @@
 
       </section>
 
-      <!-- Main Two Columns -->
-      <div class="section flex-row">
+      <!-- Announcements -->
+      <section class="section">
+        <h3>Announcements</h3>
 
-        <!-- Left -->
-        <div style="flex:2 1 0;">
+        <div class="announcement-item">📢 Team meeting at 2 PM</div>
+        <div class="announcement-item">📢 Salary uploaded</div>
 
-          <!-- Announcements -->
-          <section class="section announcements-section">
+      </section>
 
-            <div class="section-title announcements-title">
-              <span>Announcements</span>
-              <span class="announcement-badge">2 new</span>
-            </div>
+      <!-- Leave Requests -->
+      <section class="section">
 
-            <div class="announcement-list">
+        <h3>Leave Requests</h3>
 
-              <article class="announcement-item">
-                <div class="announcement-icon">📢</div>
-                <div class="announcement-content">
-                  <div class="announcement-text">
-                    Team meeting at 2 PM today.
-                  </div>
-                  <div class="announcement-meta">
-                    <span>1 hr ago</span>
-                  </div>
-                </div>
-              </article>
+        <table>
+          <tr>
+            <th>Duration</th>
+            <th>Type</th>
+            <th>Days</th>
+            <th>Status</th>
+          </tr>
 
-              <article class="announcement-item">
-                <div class="announcement-icon">📢</div>
-                <div class="announcement-content">
-                  <div class="announcement-text">
-                    Salary slips are now available.
-                  </div>
-                  <div class="announcement-meta">
-                    <span>Today</span>
-                  </div>
-                </div>
-              </article>
+          <tr>
+            <td>Apr 25 - Apr 28</td>
+            <td>Annual</td>
+            <td>4</td>
+            <td>Approved</td>
+          </tr>
 
-            </div>
+        </table>
 
-          </section>
-
-          <!-- Leave Request -->
-          <section class="section leave-request-section">
-
-            <div class="section-title leave-request-title">
-              <span>Leave Request</span>
-            </div>
-
-            <div class="leave-request-table">
-
-              <div class="leave-request-header">
-                <div class="leave-col-duration">Duration</div>
-                <div class="leave-col-type">Type</div>
-                <div class="leave-col-days">Days</div>
-                <div class="leave-col-status">Status</div>
-                <div class="leave-col-action"></div>
-              </div>
-
-              <div class="leave-request-row">
-                <div class="leave-col-duration">Apr 25 - Apr 28</div>
-                <div class="leave-col-type">Annual Leave</div>
-                <div class="leave-col-days">04</div>
-                <div class="leave-col-status">
-                  <span class="status-badge status-approved">Approved</span>
-                </div>
-                <div class="leave-col-action">
-                  <a href="/EALMS/leave-summary.html" class="see-more-link">See More</a>
-                </div>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-        <!-- Right -->
-        <div style="flex:1 1 0; display:flex; flex-direction:column; gap:12px;">
-
-          <!-- On Leave -->
-          <section class="section whos-on-leave">
-
-            <div class="section-title">Who's on Leave</div>
-
-            <div class="celebration-reminders-list-user">
-
-              <div class="celebration-item-user">
-                <div class="celebration-name-user">Ahmed Hassan</div>
-                <div class="celebration-date-user">
-                  <i class="fas fa-calendar"></i> 2026-04-24 - 2026-04-27
-                </div>
-                <span class="celebration-type-user purple">Casual Leave</span>
-              </div>
-
-            </div>
-
-          </section>
-
-          <!-- Celebrations -->
-          <section class="section celebrations">
-
-            <div class="section-title">Celebrations this month</div>
-
-            <div class="celebration-reminders-list-user">
-
-              <div class="celebration-item-user">
-                <div class="celebration-name-user">Sarah Ali</div>
-                <div class="celebration-date-user">
-                  <i class="fas fa-calendar"></i> Apr 30, 2026
-                </div>
-                <span class="celebration-type-user">Birthday</span>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-      </div>
+      </section>
 
     </main>
 
@@ -235,38 +152,34 @@
 </div>
 
 <!-- Modal -->
-<div class="modal-overlay">
+<div class="modal-overlay" id="modal" style="display:none;">
 
   <div class="modal">
 
     <header class="modal-header">
       <h2>Request Time Off</h2>
-      <button class="close-btn">&times;</button>
-
+      <button class="close-btn" onclick="closeModal()">&times;</button>
     </header>
 
-    <form class="request-timeoff-form" action="#" method="POST">
+    <form onsubmit="return submitRequest()">
 
-      <label for="leave-type">Type</label>
-      <select id="leave-type" name="leave_type">
-        <option>Select Leave Type</option>
-        <option>Casual Leave</option>
-        <option>Sick Leave</option>
-        <option>Earned Leave</option>
-        <option>Unpaid Leave</option>
-        <option>Half Leave</option>
+      <label>Type</label>
+      <select required>
+        <option value="">Select</option>
+        <option>Casual</option>
+        <option>Sick</option>
       </select>
 
-      <label for="start-date">Start Date</label>
-      <input type="date" id="start-date" name="start_date">
+      <label>Start Date</label>
+      <input type="date" required>
 
-      <label for="end-date">End Date</label>
-      <input type="date" id="end-date" name="end_date">
+      <label>End Date</label>
+      <input type="date" required>
 
-      <label for="reason">Reason</label>
-      <textarea id="reason" name="reason" rows="4"></textarea>
+      <label>Reason</label>
+      <textarea required></textarea>
 
-      <button type="submit" class="btn-submit">Done</button>
+      <button type="submit" class="btn-submit">Submit</button>
 
     </form>
 
@@ -274,16 +187,36 @@
 
 </div>
 
-<footer class="main-footer">
-  <div class="footer-content">
-    <p>&copy; 2026 Leave Management System (LMS). All Rights Reserved.</p>
-  </div>
+<footer>
+  <p>© 2026 EALMS</p>
 </footer>
 
 <script>
-document.querySelector('.close-btn').addEventListener('click', function () {
-  window.location.href = "/EALMS/dashboard";
-});
+function markAttendance() {
+  const selected = document.querySelector('input[name="status"]:checked');
+
+  if (!selected) {
+    alert("Please select attendance");
+    return false;
+  }
+
+  alert("Attendance marked: " + selected.value);
+  return false;
+}
+
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function submitRequest() {
+  alert("Request submitted successfully!");
+  closeModal();
+  return false;
+}
 </script>
 
 </body>
