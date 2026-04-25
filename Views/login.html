@@ -23,7 +23,7 @@
     </p>
 
     <div class="illustration" style="margin-left: 250px;">
-      <img src="../Public/Images/login.png" alt="Calendar with people managing leaves" />
+      <img src="../Public/Images/login.png" alt="Login Image" />
     </div>
 
   </section>
@@ -33,12 +33,13 @@
 
     <h2>Login</h2>
 
+    
     <form class="login-form" onsubmit="goToDashboard(event)">
 
       <label for="email">Email</label>
 
       <div class="input-group">
-        <span class="input-icon">📧</span>
+        <span class="input-icon"></span>
         <input
           type="email"
           id="email"
@@ -51,7 +52,7 @@
       <label for="password">Password</label>
 
       <div class="input-group">
-        <span class="input-icon">🔒</span>
+        <span class="input-icon"> </span>
         <input
           type="password"
           id="password"
@@ -86,10 +87,11 @@ function goToDashboard(e) {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
 
-  if (email && password) {
+  // 
+  if (email.includes("@") && password.length >= 3) {
     window.location.href = "userDashboard.html";
   } else {
-    alert("Please enter email and password");
+    alert("Please enter a valid email and password (min 3 chars)");
   }
 }
 </script>
