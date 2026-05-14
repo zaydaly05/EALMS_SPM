@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EALMS — attendance history and daily records.">
+    <title>Attendance history | EALMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="history.css">
+</head>
+<body class="app-shell">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-text">EALMS</span>
+                <span class="logo-tagline">Leave &amp; attendance</span>
+            </div>
+            <nav class="nav-menu" aria-label="Main">
+                <a href="dashboard.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="history.html" class="nav-item active">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="nav-text">Attendance history</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="nav-text">Settings</span>
+                </a>
+                <a href="admin.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="nav-text">Admin</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-title">
+                    <h1>Attendance history</h1>
+                    <p class="page-subtitle">Review check-in, check-out, and daily status for the selected period.</p>
+                </div>
+                <div class="user-actions">
+                    <div class="header-notify-wrap">
+                        <button type="button" class="icon-btn notification-btn" id="notificationBtn" aria-expanded="false" aria-haspopup="true" aria-controls="notificationPanel" aria-label="Notifications">
+                            <span class="notification-dot" id="notificationDot" hidden aria-hidden="true"></span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                        </button>
+                        <div id="notificationPanel" class="header-popover header-popover--notifications" role="region" aria-label="Notifications" hidden>
+                            <div class="header-popover-head">
+                                <span class="header-popover-title">Notifications</span>
+                                <button type="button" class="text-btn" id="markAllReadBtn">Mark all read</button>
+                            </div>
+                            <div id="notificationList" class="notification-list"></div>
+                        </div>
+                    </div>
+                    <div class="header-profile-wrap">
+                        <button type="button" class="user-profile user-profile--btn" id="userMenuTrigger" aria-expanded="false" aria-haspopup="true" aria-controls="userMenuPanel" aria-label="Account menu" data-user-avatar>ZA</button>
+                        <div id="userMenuPanel" class="header-popover header-popover--menu" role="menu" hidden>
+                            <a href="settings.html" class="header-menu-item" role="menuitem">Profile &amp; settings</a>
+                            <a href="index.html" class="header-menu-item" role="menuitem">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="filter-section">
+                <div class="filter-tabs" role="tablist" aria-label="Attendance type">
+                    <button type="button" class="tab active" data-tab="present">Present</button>
+                    <button type="button" class="tab" data-tab="halfday">Half day</button>
+                    <button type="button" class="tab" data-tab="absent">Absent</button>
+                </div>
+
+                <div class="filter-buttons" aria-label="Quick range">
+                    <button type="button" class="time-filter active">1W</button>
+                    <button type="button" class="time-filter">1M</button>
+                    <button type="button" class="time-filter">3M</button>
+                    <button type="button" class="time-filter">6M</button>
+                    <button type="button" class="time-filter">1Y</button>
+                    <button type="button" class="time-filter">All</button>
+                </div>
+
+                <div class="date-range">
+                    <div class="date-input">
+                        <label for="histStart">Start date</label>
+                        <input type="date" class="start-date" id="histStart">
+                    </div>
+                    <div class="date-input">
+                        <label for="histEnd">End date</label>
+                        <input type="date" class="end-date" id="histEnd">
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-section">
+                <div class="table-wrap">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Check in</th>
+                                <th scope="col">Check out</th>
+                                <th scope="col">Work time</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sep 23, 2025</td>
+                                <td>Monday</td>
+                                <td>10:30 AM</td>
+                                <td>8:30 PM</td>
+                                <td>08h 00m</td>
+                                <td><span class="status present">Present</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sep 24, 2025</td>
+                                <td>Tuesday</td>
+                                <td>9:45 AM</td>
+                                <td>6:15 PM</td>
+                                <td>08h 30m</td>
+                                <td><span class="status present">Present</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sep 25, 2025</td>
+                                <td>Wednesday</td>
+                                <td>10:00 AM</td>
+                                <td>7:00 PM</td>
+                                <td>09h 00m</td>
+                                <td><span class="status present">Present</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sep 26, 2025</td>
+                                <td>Thursday</td>
+                                <td>10:15 AM</td>
+                                <td>6:45 PM</td>
+                                <td>08h 30m</td>
+                                <td><span class="status present">Present</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sep 27, 2025</td>
+                                <td>Friday</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td>00h 00m</td>
+                                <td><span class="status absent">Absent</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ealms-store.js"></script>
+    <script src="ealms-header.js"></script>
+    <script src="history.js"></script>
+</body>
+</html>

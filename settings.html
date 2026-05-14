@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EALMS — profile and notification settings.">
+    <title>Settings | EALMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body class="app-shell">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-text">EALMS</span>
+                <span class="logo-tagline">Leave &amp; attendance</span>
+            </div>
+            <nav class="nav-menu" aria-label="Main">
+                <a href="dashboard.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="nav-text">Attendance history</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="nav-text">Settings</span>
+                </a>
+                <a href="admin.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="nav-text">Admin</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-title">
+                    <h1>Settings</h1>
+                    <p class="page-subtitle"><span id="settingsPageName">—</span> · profile and notifications</p>
+                </div>
+                <div class="user-actions">
+                    <div class="header-notify-wrap">
+                        <button type="button" class="icon-btn notification-btn" id="notificationBtn" aria-expanded="false" aria-haspopup="true" aria-controls="notificationPanel" aria-label="Notifications">
+                            <span class="notification-dot" id="notificationDot" hidden aria-hidden="true"></span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                        </button>
+                        <div id="notificationPanel" class="header-popover header-popover--notifications" role="region" aria-label="Notifications" hidden>
+                            <div class="header-popover-head">
+                                <span class="header-popover-title">Notifications</span>
+                                <button type="button" class="text-btn" id="markAllReadBtn">Mark all read</button>
+                            </div>
+                            <div id="notificationList" class="notification-list"></div>
+                        </div>
+                    </div>
+                    <div class="header-profile-wrap">
+                        <button type="button" class="user-profile user-profile--btn" id="userMenuTrigger" aria-expanded="false" aria-haspopup="true" aria-controls="userMenuPanel" aria-label="Account menu" data-user-avatar>ZA</button>
+                        <div id="userMenuPanel" class="header-popover header-popover--menu" role="menu" hidden>
+                            <a href="settings.html" class="header-menu-item" role="menuitem">Profile &amp; settings</a>
+                            <a href="index.html" class="header-menu-item" role="menuitem">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="settingsToast" class="settings-toast" role="status"></div>
+
+            <div class="settings-grid">
+                <section class="settings-card" aria-labelledby="profile-heading">
+                    <h2 id="profile-heading">Profile</h2>
+                    <p class="settings-card-desc">This information is shown on your requests and in the directory when your organization enables it.</p>
+                    <form id="profileForm" class="settings-form">
+                        <div class="form-row">
+                            <label for="fieldDisplayName">Display name</label>
+                            <input type="text" id="fieldDisplayName" name="displayName" required autocomplete="name" maxlength="120">
+                        </div>
+                        <div class="form-row">
+                            <label for="fieldEmail">Work email</label>
+                            <input type="email" id="fieldEmail" name="email" required autocomplete="email" maxlength="120">
+                        </div>
+                        <div class="form-row">
+                            <label for="fieldDepartment">Department</label>
+                            <input type="text" id="fieldDepartment" name="department" autocomplete="organization" maxlength="120">
+                        </div>
+                        <div class="form-row">
+                            <label for="fieldJobTitle">Job title</label>
+                            <input type="text" id="fieldJobTitle" name="jobTitle" autocomplete="organization-title" maxlength="120">
+                        </div>
+                        <button type="submit" class="settings-save">Save profile</button>
+                    </form>
+                </section>
+
+                <section class="settings-card" aria-labelledby="notif-heading">
+                    <h2 id="notif-heading">Notifications</h2>
+                    <p class="settings-card-desc">Choose what you want to hear about by email when your organization connects outbound mail.</p>
+                    <form id="notifForm" class="settings-form">
+                        <div class="settings-toggle">
+                            <input type="checkbox" id="prefAnnouncements" name="prefAnnouncements">
+                            <label for="prefAnnouncements">
+                                <span class="settings-toggle-title">Announcements</span>
+                                <span class="settings-toggle-desc">Get an email when HR posts a new announcement.</span>
+                            </label>
+                        </div>
+                        <div class="settings-toggle">
+                            <input type="checkbox" id="prefLeave" name="prefLeave">
+                            <label for="prefLeave">
+                                <span class="settings-toggle-title">Leave decisions</span>
+                                <span class="settings-toggle-desc">Email me when a leave request is approved or rejected.</span>
+                            </label>
+                        </div>
+                        <div class="settings-toggle">
+                            <input type="checkbox" id="prefDigest" name="prefDigest">
+                            <label for="prefDigest">
+                                <span class="settings-toggle-title">Weekly digest</span>
+                                <span class="settings-toggle-desc">Summary of attendance and leave balance (optional).</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="settings-save">Save notification preferences</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="ealms-store.js"></script>
+    <script src="ealms-header.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

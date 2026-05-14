@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EALMS — leave request details.">
+    <title>Leave details | EALMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="leave-details.css">
+</head>
+<body>
+    <div class="container">
+        <div class="modal-overlay">
+            <div class="modal-content" role="dialog" aria-labelledby="leaveTitle" aria-modal="true">
+                <div class="modal-header">
+                    <h2 id="leaveTitle">Leave request</h2>
+                    <a href="dashboard.html" class="close-btn" aria-label="Close and return to dashboard">&times;</a>
+                </div>
+
+                <div class="modal-body">
+                    <div class="detail-row">
+                        <span class="detail-label">Start date</span>
+                        <span class="detail-value" id="detailStart">—</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">End date</span>
+                        <span class="detail-value" id="detailEnd">—</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Reason</span>
+                        <span class="detail-value" id="detailReason">—</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value" id="detailType">—</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Days</span>
+                        <span class="detail-value" id="detailDays">—</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Submitted</span>
+                        <span class="detail-value" id="detailSubmitted">—</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value"><span class="status-badge pending" id="detailStatusBadge">Pending</span></span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="dashboard.html" class="back-link">Back to dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ealms-store.js"></script>
+    <script src="leave-details.js"></script>
+</body>
+</html>

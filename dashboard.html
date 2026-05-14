@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EALMS — dashboard for leave balances, attendance, announcements, and requests.">
+    <title>Dashboard | EALMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="app-shell">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-text">EALMS</span>
+                <span class="logo-tagline">Leave &amp; attendance</span>
+            </div>
+            <nav class="nav-menu" aria-label="Main">
+                <a href="dashboard.html" class="nav-item active">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="nav-text">Attendance history</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="nav-text">Settings</span>
+                </a>
+                <a href="admin.html" class="nav-item">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="nav-text">Admin</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-title">
+                    <h1 id="dashboardWelcomeHeading">Welcome back</h1>
+                    <p class="page-subtitle">Leave balances, today's attendance, announcements, and your recent requests.</p>
+                </div>
+                <div class="user-actions">
+                    <div class="header-notify-wrap">
+                        <button type="button" class="icon-btn notification-btn" id="notificationBtn" aria-expanded="false" aria-haspopup="true" aria-controls="notificationPanel" aria-label="Notifications">
+                            <span class="notification-dot" id="notificationDot" hidden aria-hidden="true"></span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                        </button>
+                        <div id="notificationPanel" class="header-popover header-popover--notifications" role="region" aria-label="Notifications" hidden>
+                            <div class="header-popover-head">
+                                <span class="header-popover-title">Notifications</span>
+                                <button type="button" class="text-btn" id="markAllReadBtn">Mark all read</button>
+                            </div>
+                            <div id="notificationList" class="notification-list"></div>
+                        </div>
+                    </div>
+                    <button type="button" class="request-btn">Request time off</button>
+                    <div class="header-profile-wrap">
+                        <button type="button" class="user-profile user-profile--btn" id="userMenuTrigger" aria-expanded="false" aria-haspopup="true" aria-controls="userMenuPanel" aria-label="Account menu" data-user-avatar>ZA</button>
+                        <div id="userMenuPanel" class="header-popover header-popover--menu" role="menu" hidden>
+                            <a href="settings.html" class="header-menu-item" role="menuitem">Profile &amp; settings</a>
+                            <a href="index.html" class="header-menu-item" role="menuitem">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content">
+                <section class="mark-attendance" aria-labelledby="mark-attendance-heading">
+                    <div class="mark-attendance-header">
+                        <h2 id="mark-attendance-heading">Mark attendance</h2>
+                        <p class="mark-attendance-desc">Record how you are working today. You can update your choice until the end of the workday.</p>
+                    </div>
+                    <div class="attendance-options" role="group" aria-label="Today's work status">
+                        <button type="button" class="attendance-btn" data-status="present" aria-pressed="false">
+                            <span class="attendance-btn-title">Present</span>
+                            <span class="attendance-btn-desc">On site or standard scheduled day</span>
+                        </button>
+                        <button type="button" class="attendance-btn" data-status="absent" aria-pressed="false">
+                            <span class="attendance-btn-title">Absent</span>
+                            <span class="attendance-btn-desc">Not working (leave or other absence)</span>
+                        </button>
+                        <button type="button" class="attendance-btn" data-status="remote" aria-pressed="false">
+                            <span class="attendance-btn-title">Remote</span>
+                            <span class="attendance-btn-desc">Working off site</span>
+                        </button>
+                    </div>
+                    <p class="attendance-feedback" id="attendanceFeedback" aria-live="polite"></p>
+                </section>
+
+                <section class="leave-types" aria-label="Leave balances">
+                    <article class="leave-card casual">
+                        <div class="card-header">
+                            <span class="card-icon card-icon--casual" aria-hidden="true"></span>
+                            <span class="card-title">Casual leave</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><span class="stat-label">Available</span> <span class="stat-value">05</span></div>
+                            <div class="stat"><span class="stat-label">Used</span> <span class="stat-value">02</span></div>
+                        </div>
+                    </article>
+
+                    <article class="leave-card sick">
+                        <div class="card-header">
+                            <span class="card-icon card-icon--sick" aria-hidden="true"></span>
+                            <span class="card-title">Sick leave</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><span class="stat-label">Available</span> <span class="stat-value">05</span></div>
+                            <div class="stat"><span class="stat-label">Used</span> <span class="stat-value">02</span></div>
+                        </div>
+                    </article>
+
+                    <article class="leave-card earned">
+                        <div class="card-header">
+                            <span class="card-icon card-icon--earned" aria-hidden="true"></span>
+                            <span class="card-title">Earned leave</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><span class="stat-label">Available</span> <span class="stat-value">05</span></div>
+                            <div class="stat"><span class="stat-label">Used</span> <span class="stat-value">02</span></div>
+                        </div>
+                    </article>
+
+                    <article class="leave-card unpaid">
+                        <div class="card-header">
+                            <span class="card-icon card-icon--unpaid" aria-hidden="true"></span>
+                            <span class="card-title">Unpaid leave</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><span class="stat-label">Available</span> <span class="stat-value">00</span></div>
+                            <div class="stat"><span class="stat-label">Used</span> <span class="stat-value">00</span></div>
+                        </div>
+                    </article>
+
+                    <article class="leave-card half">
+                        <div class="card-header">
+                            <span class="card-icon card-icon--half" aria-hidden="true"></span>
+                            <span class="card-title">Half-day leave</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><span class="stat-label">Available</span> <span class="stat-value">06</span></div>
+                            <div class="stat"><span class="stat-label">Used</span> <span class="stat-value">00</span></div>
+                        </div>
+                    </article>
+                </section>
+
+                <div class="bottom-grid">
+                    <div class="bottom-grid-main">
+                    <section class="dashboard-today" aria-labelledby="dashboard-today-heading">
+                        <div class="dashboard-today-header">
+                            <div>
+                                <h2 id="dashboard-today-heading">Today</h2>
+                                <p class="dashboard-today-date" id="dashboardTodayDate"></p>
+                            </div>
+                            <span class="dashboard-today-badge" id="dashboardPendingBadge" hidden>0 pending</span>
+                        </div>
+                        <p class="dashboard-today-lead">A quick snapshot before you dive into announcements and your team calendar.</p>
+                        <div class="dashboard-today-actions">
+                            <a href="history.html" class="today-action">Attendance history</a>
+                            <button type="button" class="today-action today-action--btn" id="todayRequestLeave">Request time off</button>
+                        </div>
+                    </section>
+
+                    <section class="announcements">
+                        <div class="section-header">
+                            <h2>Announcements</h2>
+                            <span class="badge" id="announcementsBadge" hidden>—</span>
+                        </div>
+                        <div id="announcementsList"></div>
+                    </section>
+                    </div>
+
+                    <aside class="right-sidebar">
+                        <section class="whos-on-leave">
+                            <div class="section-header">
+                                <h3>Out of office</h3>
+                                <label class="sr-only" for="dateFilter">Date range</label>
+                                <select class="date-filter" id="dateFilter">
+                                    <option>Today</option>
+                                    <option>This week</option>
+                                    <option>This month</option>
+                                </select>
+                            </div>
+                            <p class="leave-count">On leave: <strong>2</strong></p>
+                            <div class="person">
+                                <span class="person-avatar" aria-hidden="true">TK</span>
+                                <div>
+                                    <p class="person-name">Tejas Khanna</p>
+                                    <small>Apr 20 · Casual leave</small>
+                                </div>
+                            </div>
+                            <div class="person">
+                                <span class="person-avatar" aria-hidden="true">GK</span>
+                                <div>
+                                    <p class="person-name">Gaurang Khanna</p>
+                                    <small>Apr 20 · Half-day</small>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="celebrations">
+                            <h3>Milestones this month</h3>
+                            <div id="celebrationsList"></div>
+                        </section>
+                    </aside>
+                </div>
+
+                <section class="leave-request">
+                    <div class="section-header">
+                        <h2>Your leave requests</h2>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="request-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Days</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"><span class="sr-only">Details</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaveRequestsTbody"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="requestModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Request time off</h2>
+                <button type="button" class="close-btn" aria-label="Close">&times;</button>
+            </div>
+            <form id="requestForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="leaveType">Leave type</label>
+                        <select id="leaveType" name="leaveType" required>
+                            <option value="">Select type</option>
+                            <option value="casual">Casual leave</option>
+                            <option value="sick">Sick leave</option>
+                            <option value="earned">Earned leave</option>
+                            <option value="unpaid">Unpaid leave</option>
+                            <option value="half">Half-day</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startDate">Start date</label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">End date</label>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">Reason <span class="optional-label">optional</span></label>
+                        <textarea id="reason" name="reason" placeholder="Brief context for your approver" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="done-btn">Submit request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="ealms-store.js"></script>
+    <script src="ealms-header.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
